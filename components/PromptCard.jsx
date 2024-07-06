@@ -41,15 +41,7 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
 
   const updateLike = async (like) => {
 
-    
-    console.log({
-            type: 'this is PromptCard',
-            prompt: post.prompt,
-            userId: session?.user.id,
-            tag: post.tag,
-            postId: post._id,
-            likes: like 
-        });
+
     //save on the database
     try{
             const response = await fetch(`/api/prompt/${post._id}`,
