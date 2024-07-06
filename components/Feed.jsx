@@ -4,9 +4,14 @@ import { useState, useEffect } from "react"
 import PromptCard from "./PromptCard";
 
 const PromptCardList = ({data, handleTagClick}) => {
+
+  console.log("data before sorting: ",data);
+  const sortedData = [...data].sort((a, b) => b.likes - a.likes);
+  console.log("data after sorting: ",data);
+
   return(
     <div className="mt-16 prompt_layout">
-      {data.map((post) => (
+      {sortedData.map((post) => (
         <PromptCard 
           key={post._id}
           post={post}
@@ -29,7 +34,11 @@ const Feed = () => {
     const response = await fetch('/api/prompt');
     const data = await response.json();
 
-    setPosts(data);
+    const nomalizeData = data.map(post => ({
+      ...post,
+      likes: post.likes !== undefined ? post.likes : 0,
+    }));
+    setPosts(nomalizeData);
   }
 
   useEffect(() => {

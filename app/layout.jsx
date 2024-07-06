@@ -4,13 +4,18 @@ import Provider from '@components/Provider';
 
 export const metadata = {
     title: "Promptly",
-    description: 'Discover & share AI Promts'
+    description: 'Discover & share AI Promts',
+    favicon: '/assets/images/logo.png'
 }
 
 const RootLayout = ({children}) => {
     
   return (
     <html lang="en">
+        <head>
+
+        <link rel="icon" href={metadata.favicon} />
+      </head>
         <body>
             <Provider>
                 <div className="main">
