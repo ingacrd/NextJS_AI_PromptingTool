@@ -26,7 +26,7 @@ const UserProfile = ({ params}) =>
 
   }, [params.id]);
 
-
+ 
   return (
     <Profile
         name={userName} 

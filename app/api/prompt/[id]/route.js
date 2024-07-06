@@ -23,8 +23,8 @@ export const GET = async(request, {params}) => {
 
 //PATCH (update)
 export const PATCH = async (request, {params}) => {
-    const {prompt, tag} = await request.json();
-
+    const {prompt, tag, likes} = await request.json();
+ 
     try {
         await connectToDB();
         const existingPrompt = await Prompt.findById(params.id);
@@ -32,6 +32,7 @@ export const PATCH = async (request, {params}) => {
 
         existingPrompt.prompt = prompt;
         existingPrompt.tag  = tag;
+        existingPrompt.likes = likes;
 
         await existingPrompt.save();
 

@@ -3,7 +3,7 @@ import Nav from '@components/Nav';
 import Provider from '@components/Provider';
 
 export const metadata = {
-    title: "Promptopia",
+    title: "Promptly",
     description: 'Discover & share AI Promts'
 }
 
