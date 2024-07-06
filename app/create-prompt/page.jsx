@@ -13,20 +13,33 @@ const CreatePrompt = () => {
     const [post, setPost] = useState({
         prompt: '',
         tag: '',
+        likes: 0
     });
 
     const createPrompt = async (e) => {
         e.preventDefault();
         setSubmitting(true);
+
+        console.log({
+            prompt: post.prompt,
+            userId: session?.user.id,
+            tag: post.tag,
+            likes: post.likes  
+        });
+
         try{
             const response = await fetch('/api/prompt/new',
-            {
+            { 
                 method: 'POST',
                 body: JSON.stringify({
                     prompt: post.prompt,
                     userId: session?.user.id,
-                    tag: post.tag
-                })
+                    tag: post.tag,
+                    likes: post.likes
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             })
             if(response.ok){
                 router.push('/');
