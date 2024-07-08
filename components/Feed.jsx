@@ -5,9 +5,9 @@ import PromptCard from "./PromptCard";
 
 const PromptCardList = ({data, handleTagClick}) => {
 
-  console.log("data before sorting: ",data);
+
   const sortedData = [...data].sort((a, b) => b.likes - a.likes);
-  console.log("data after sorting: ",data);
+
 
   return(
     <div className="mt-16 prompt_layout">
